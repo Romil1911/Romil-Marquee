@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Check-In Form</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.box{
+    width:100%;
+    max-width:1550px;
+    display:flex;
+    gap:35px;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+/* ================= LEFT PANEL ================= */
+
+.bac{
+    width:430px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 25px 45px rgba(0,0,0,.35);
+    transition:.4s;
+}
+
+.bac:hover{
+    transform:translateY(-8px);
+}
+
+.bac h1{
+    text-align:center;
+    color:#fff;
+    font-size:36px;
+    margin-bottom:25px;
+    letter-spacing:1px;
+    text-shadow:2px 2px 15px rgba(0,0,0,.5);
+}
+
+form p{
+    color:#fff;
+    margin:18px 0 8px;
+    font-weight:500;
+    font-size:16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"]{
+
+    width:100%;
+    height:55px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    padding:0 18px;
+    font-size:17px;
+    background:rgba(255,255,255,.95);
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#666;
+}
+
+input:focus{
+    transform:scale(1.03);
+    box-shadow:0 0 18px #00e5ff;
+}
+
+.check-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:15px;
+    color:white;
+    font-weight:500;
+}
+
+input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    cursor:pointer;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    width:100%;
+    height:55px;
+    margin-top:30px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    color:white;
+    font-size:19px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+    letter-spacing:1px;
+}
+
+button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,.4);
+}
+
+/* ================= OUTPUT ================= */
+
+.output{
+    flex:1;
+    min-height:750px;
+    padding:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    align-content:flex-start;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 25px 45px rgba(0,0,0,.35);
+}
+
+/* ================= GUEST CARD ================= */
+
+.bx{
+    width:280px;
+    min-height:250px;
+    border-radius:22px;
+    color:white;
+    padding:22px;
+    box-shadow:0 18px 35px rgba(0,0,0,.35);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.bx::before{
+    content:"";
+    position:absolute;
+    top:-40px;
+    right:-40px;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+}
+
+.bx:hover{
+    transform:translateY(-12px) scale(1.05);
+}
+
+.bx h3{
+    text-align:center;
+    font-size:28px;
+    margin-bottom:15px;
+    text-shadow:1px 1px 8px rgba(0,0,0,.3);
+}
+
+.bx p{
+    margin-top:10px;
+    font-size:16px;
+}
+
+/* ================= CHECKOUT BUTTON ================= */
+
+.checkout{
+    margin-top:20px;
+    width:100%;
+    height:45px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#222;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.checkout:hover{
+    background:#222;
+    color:white;
+}
+
+.checkout:disabled{
+    background:#666;
+    color:white;
+    cursor:not-allowed;
+}
+
+/* ================= SCROLLBAR ================= */
+
+.output::-webkit-scrollbar{
+    width:8px;
+}
+
+.output::-webkit-scrollbar-thumb{
+    background:#ffffff88;
+    border-radius:20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+.box{
+    flex-direction:column;
+    align-items:center;
+}
+
+.bac{
+    width:100%;
+}
+
+.output{
+    width:100%;
+    min-height:auto;
+}
+
+}
+
+@media(max-width:700px){
+
+.bx{
+    width:100%;
+}
+
+.bac h1{
+    font-size:30px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="bac">
+
+<h1>Hotel Check-In</h1>
+
+<form>
+
+<p>Enter Your Name</p>
+<input type="text" id="name" placeholder="Your Name">
+
+<p>Enter Your Email</p>
+<input type="email" id="mail" placeholder="example@gmail.com">
+
+<div class="check-area">
+<input type="checkbox" id="check">
+<label for="check">Checked In</label>
+</div>
+
+<p>Enter Your Room No</p>
+<input type="number" id="r_no" placeholder="Room Number">
+
+<p>Enter Your Age</p>
+<input type="text" id="age" placeholder="Age">
+
+<button type="submit">SUBMIT</button>
+
+</form>
+
+</div>
+
+<div class="output"></div>
+
+</div>
+
+<script>
+
+let form=document.querySelector("form");
+
+let inp1=document.querySelector("#name");
+let inp2=document.querySelector("#mail");
+let inp3=document.querySelector("#r_no");
+let inp4=document.querySelector("#age");
+
+let ckeck=document.querySelector("#check");
+
+let outputDiv=document.querySelector(".output");
+
+inp3.disabled=true;
+
+ckeck.addEventListener("click",()=>{
+
+    if(ckeck.checked){
+        inp3.disabled=false;
+    }
+    else{
+        inp3.disabled=true;
+        inp3.value="";
+    }
+
+});
+
+form.addEventListener("submit",(event)=>{
+
+    event.preventDefault();
+
+    let obj={
+        name:inp1.value,
+        email:inp2.value,
+        Room_NO:inp3.value,
+        Age:inp4.value
+    };
+
+    let newDiv=document.createElement("div");
+    newDiv.classList.add("bx");
+
+    newDiv.innerHTML=`
+        <h3>${obj.name}</h3>
+        <p><b>Email:</b> ${obj.email}</p>
+        <p><b>Room:</b> ${obj.Room_NO || "Not Assigned"}</p>
+        <p><b>Age:</b> ${obj.Age}</p>
+        <p><b>Status:</b> ${ckeck.checked ? "Checked In " : "Not Checked "}</p>
+    `;
+
+    if(ckeck.checked){
+
+        newDiv.style.background="linear-gradient(135deg,#11998e,#38ef7d)";
+
+        // Create Checkout Button
+        let btn=document.createElement("button");
+        btn.innerText="Check Out";
+        btn.type="button";
+        btn.style.marginTop="15px";
+        btn.style.height="40px";
+        btn.style.width="100%";
+        btn.style.background="white";
+        btn.style.color="black";
+        btn.style.fontSize="16px";
+        btn.style.borderRadius="8px";
+        btn.style.cursor="pointer";
+
+        newDiv.appendChild(btn);
+
+        // Checkout Button Event
+        btn.addEventListener("click",function(){
+
+            newDiv.style.background="linear-gradient(135deg,#ff416c,#ff4b2b)";
+
+            btn.innerText="Checked Out";
+            btn.disabled=true;
+            btn.style.background="#555";
+            btn.style.color="white";
+            btn.style.cursor="not-allowed";
+
+        });
+
+    }
+    else{
+
+        newDiv.style.background="linear-gradient(135deg,#ff416c,#ff4b2b)";
+
+    }
+
+    outputDiv.appendChild(newDiv);
+
+    form.reset();
+    inp3.disabled=true;
+
+});
+
+</script>
+
+</body>
+</html>
